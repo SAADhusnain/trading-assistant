@@ -1,4 +1,5 @@
 # NOT COMPLETED STILL WORKING BELOW IS THE INITIAL Readme
+## initially it was working i thought it was but the outputs were trash so here we are figuring this shit out
 # 🤖 AI Trading Assistant
 
 A complete, professional machine learning-powered trading system for stocks and cryptocurrencies. Built with modern software engineering practices and modular architecture.
