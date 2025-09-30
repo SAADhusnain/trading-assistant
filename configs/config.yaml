@@ -1,0 +1,123 @@
+# AI Trading Assistant Configuration File
+# Edit these values to customize your trading bot
+
+# Trading Symbol Configuration
+symbol:
+  default: 'AAPL'              # Default symbol to trade
+  type: 'stock'                # 'stock' or 'crypto'
+  
+# Data Collection Parameters
+data:
+  interval: '5m'               # 1m, 2m, 5m, 15m, 30m, 60m, 1h, 1d
+  period: '60d'                # 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y
+  update_frequency: 300        # Seconds between data updates (300 = 5 min)
+  
+# Feature Engineering
+features:
+  moving_averages: [5, 10, 20, 50, 100, 200]
+  rsi_periods: [7, 14, 21]
+  use_macd: true
+  use_bollinger_bands: true
+  use_stochastic: true
+  use_atr: true
+  use_volume_indicators: true
+  
+# Target Label Configuration
+labels:
+  lookahead: 1                 # Number of periods to look ahead
+  threshold: 0.0               # Minimum price change % for label
+  type: 'binary'               # 'binary' or 'multiclass'
+  
+# Model Training Parameters
+models:
+  test_size: 0.2               # Proportion of data for testing
+  use_time_split: true         # Use time-based train/test split
+  random_state: 42
+  
+  # Logistic Regression
+  logistic_regression:
+    max_iter: 1000
+    solver: 'lbfgs'
+  
+  # Random Forest
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 10
+    n_jobs: -1
+  
+  # Gradient Boosting
+  gradient_boosting:
+    n_estimators: 100
+    max_depth: 5
+    learning_rate: 0.1
+  
+  # XGBoost
+  xgboost:
+    n_estimators: 100
+    max_depth: 5
+    learning_rate: 0.1
+    use_label_encoder: false
+    eval_metric: 'logloss'
+
+# Trading Strategy Parameters
+strategy:
+  initial_capital: 10000       # Starting capital ($)
+  prob_threshold: 0.6          # Minimum prediction probability (0.5-0.9)
+  stop_loss: 0.02              # Stop loss percentage (0.02 = 2%)
+  take_profit: 0.03            # Take profit percentage (0.03 = 3%)
+  max_position_size: 0.95      # Max capital per trade (0.95 = 95%)
+  
+# Paper Trading Configuration
+paper_trading:
+  enabled: true
+  check_interval: 300          # Seconds between checks
+  log_trades: true
+  log_directory: 'logs/'
+  
+# Risk Management
+risk:
+  max_daily_loss: 0.05         # Max daily loss (5%)
+  max_position_size: 0.95      # Max position size
+  use_stop_loss: true
+  use_take_profit: true
+  trailing_stop: false
+  trailing_stop_pct: 0.01
+  
+# Dashboard Settings
+dashboard:
+  auto_refresh: false
+  refresh_interval: 30         # Seconds
+  show_predictions: true
+  show_technical_indicators: true
+  chart_theme: 'plotly'
+  
+# Logging Configuration
+logging:
+  level: 'INFO'                # DEBUG, INFO, WARNING, ERROR
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  save_to_file: true
+  log_directory: 'logs/'
+  
+# Paths
+paths:
+  data_raw: 'data/raw/'
+  data_processed: 'data/processed/'
+  models: 'models/'
+  logs: 'logs/'
+  
+# Advanced Options
+advanced:
+  use_feature_selection: false
+  feature_selection_method: 'mutual_info'
+  n_features_to_select: 30
+  use_cross_validation: false
+  cv_folds: 5
+  optimize_hyperparameters: false
+  
+# Notification Settings (Future Enhancement)
+notifications:
+  enabled: false
+  email: false
+  telegram: false
+  discord: false
