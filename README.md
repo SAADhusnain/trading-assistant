@@ -1,3 +1,4 @@
+# NOT COMPLETED STILL WORKING BELOW IS THE INITIAL Readme
 # 🤖 AI Trading Assistant
 
 A complete, professional machine learning-powered trading system for stocks and cryptocurrencies. Built with modern software engineering practices and modular architecture.

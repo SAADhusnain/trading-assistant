@@ -1,6 +1,7 @@
 """
 Setup script for AI Trading Assistant
 Install: pip install -e .
+
 """
 
 from setuptools import setup, find_packages
